@@ -100,6 +100,7 @@ class _LoginViewState extends State<_LoginView> {
                 const SizedBox(height: 20),
                 TextFormField(
                   controller: _passwordController,
+                  obscureText: _isObscure,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     hintText: 'Password',
