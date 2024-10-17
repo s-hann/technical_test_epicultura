@@ -3,7 +3,7 @@ import 'package:technical_test/core/data/model/resource.dart';
 import 'package:technical_test/core/data/model/schedule_model.dart';
 
 class RemoteSource {
-  RemoteSource()
+  RemoteSource({Dio? dio})
       : _dio = Dio(
           BaseOptions(
             baseUrl: 'https://uat-api.ftlgym.com/api/v1/test',

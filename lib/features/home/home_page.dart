@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:technical_test/features/home/bloc/home_bloc.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => HomeBloc(),
+      child: const _HomeView(),
+    );
+  }
+}
+
+class _HomeView extends StatelessWidget {
+  const _HomeView();
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +24,7 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(40),
         child: Column(
           children: [
-            Row(
+            const Row(
               children: [
                 CircleAvatar(),
                 SizedBox(width: 20),
@@ -26,9 +40,18 @@ class HomePage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            Text('Jadwal Ruang Meeting Hari Ini'),
+            const Text('Jadwal Ruang Meeting Hari Ini'),
             ListView.builder(
-              itemBuilder: (_, index) {},
+              itemCount: 2,
+              itemBuilder: (_, index) {
+                return Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                );
+              },
             )
           ],
         ),
