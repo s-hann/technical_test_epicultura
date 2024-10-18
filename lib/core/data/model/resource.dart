@@ -27,6 +27,12 @@ class Resource<T> {
             : DateTime.parse(json["timestamp"]),
         error:
             json["error"] == null ? null : ErrorModel.fromJson(json["error"]),
-        data: (json["data"] as List<T>).map((item) => fromDataT(item)).toList(),
+        data: json["data"] == null
+            ? null
+            : json["data"] == []
+                ? null
+                : (json["data"] as List<dynamic>)
+                    .map((item) => fromDataT(item))
+                    .toList(),
       );
 }

@@ -45,7 +45,7 @@ class _LoginViewState extends State<_LoginView> {
           );
         } else if (status == LoginStatus.success) {
           toastification.dismissAll();
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (_) => const HomePage(),

@@ -12,7 +12,7 @@ class RemoteSource {
 
   final Dio _dio;
 
-  Future<Resource<dynamic>> login({
+  Future<Resource> login({
     required String email,
     required String password,
   }) async {
@@ -30,10 +30,7 @@ class RemoteSource {
     return resource;
   }
 
-  Future<Resource<ScheduleModel>> fetchSchedule({
-    required String email,
-    required String password,
-  }) async {
+  Future<Resource<ScheduleModel>> fetchSchedules() async {
     final response = await _dio.get('/jadwalruangan');
     final resource = Resource.fromJson(
       response.data,
